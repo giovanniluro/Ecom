@@ -1,0 +1,44 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Georama", sans-serif;
+  box-sizing: border-box;
+  outline: 0;
+}
+
+:root {
+  --white: #fff;
+  --black: #fff;
+  --gray-200: #d2d7df;
+  --gray-500: #605f5e;
+  --blue-500: #1f487e;
+  --blue-1000: #1d3461
+}
+
+@media (min-width: 720px) {
+  html {
+    font-size: 93.75%;
+  }
+}
+
+@media (max-width: 720px) {
+  html {
+    font-size: 87.5%;
+  }
+}
+
+button {
+  cursor: pointer;
+}
+
+a {
+  color: inherit;
+}
+
+p,
+span,
+input,
+button,
+a {
+  font-size: 1rem;
+}
