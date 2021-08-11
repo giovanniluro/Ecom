@@ -4,15 +4,17 @@
   font-family: "Georama", sans-serif;
   box-sizing: border-box;
   outline: 0;
+  border: 0;
+  line-height: 1;
 }
 
 :root {
   --white: #fff;
-  --black: #fff;
+  --black: #000;
   --gray-200: #d2d7df;
   --gray-500: #605f5e;
   --blue-500: #1f487e;
-  --blue-1000: #1d3461
+  --blue-1000: #1d3461;
 }
 
 @media (min-width: 720px) {

@@ -1,32 +1,37 @@
 import React from 'react';
-import styles from '../styles/home.module.css';
 import Head from 'next/head';
 import Header from '../components/Header';
 import { GetServerSideProps } from 'next';
 import api from '../api';
+import { Products } from '../interfaces';
+import HomeSlider from '../components/HomeSlider';
 
 interface HomeProps {
-  user: any;
+  categories: Array<string>;
+  products: Array<Products>;
 }
 
-
-export default function Home({ user }: HomeProps) {
+export default function Home({ categories }: HomeProps) {
   return (
     <>
       <Head >
         <title>Ecom | Home</title>
       </Head>
-      <Header />
-      <h1 className={styles.title}>{user.name.firstname}</h1>
+      <Header categories={categories} />
+      <HomeSlider />
+
     </>
   )
 }
 
 export const getServerSideProps: GetServerSideProps = async () => {
-  const { data } = await api.get('/users/2');
+  const categories = await api.get('/products/categories');
+  const products = await api.get('/products');
+
   return {
     props: {
-      user: data
+      categories: categories.data,
+      products: products.data
     }
   }
 };

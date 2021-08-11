@@ -1,0 +1,20 @@
+.header {
+  background: var(--black);
+  color: var(--white);
+  display: flex;
+  justify-content: space-between;
+  padding: 16px 32px;
+
+  h1 {
+    margin-right: 16px;
+  }
+
+  a {
+    padding: 0 16px;
+  }
+}
+
+.crumb {
+  display: flex;
+  align-items: center;
+}
