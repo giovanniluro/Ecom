@@ -20,10 +20,10 @@ export default function Home({ jewelery, electronics, mensClothing, womensClothi
         <title>Ecom | Home</title>
       </Head>
       <HomeSlider />
-      {jewelery && <Showcase id="jewelery" title="Jewelery" products={jewelery} />}
-      {electronics && <Showcase id="electronics" title="Electronics" products={electronics} />}
-      {mensClothing && <Showcase id="mensclothing" title="Men's Clothing" products={mensClothing} />}
-      {womensClothing && <Showcase id="womensclothing" title="Women's Clothing" products={womensClothing} />}
+      {jewelery && <Showcase title="Jewelery" products={jewelery} />}
+      {electronics && <Showcase title="Electronics" products={electronics} />}
+      {mensClothing && <Showcase title="Men's Clothing" products={mensClothing} />}
+      {womensClothing && <Showcase title="Women's Clothing" products={womensClothing} />}
     </>
   )
 }
