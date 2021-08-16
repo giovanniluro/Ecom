@@ -33,8 +33,10 @@
     -webkit-box-orient: vertical;
   }
 
-  > div {
+  > a {
     display: flex;
+    justify-content: center;
+    align-items: center;
     background: var(--black);
     color: var(--white);
     padding: 11px;
@@ -44,10 +46,7 @@
     cursor: pointer;
     width: 60%;
     justify-content: center;
-
-    a {
-      text-decoration: none;
-    }
+    text-decoration: none;
   }
 }
 

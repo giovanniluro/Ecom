@@ -6,6 +6,7 @@
   outline: 0;
   border: 0;
   line-height: 1;
+  -webkit-tap-highlight-color: transparent;
 }
 
 :root {
@@ -109,5 +110,17 @@ a {
     .swiper-button-next {
       filter: brightness(1);
     }
+  }
+}
+
+.hidden-xs {
+  @media (max-width: 976px) {
+    display: none;
+  }
+}
+
+.visible-xs {
+  @media (min-width: 976px) {
+    display: none;
   }
 }

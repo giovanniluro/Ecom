@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { SyntheticEvent } from 'react'
 import styles from './index.module.scss';
 import { Products } from '../../interfaces';
 import SwiperCore, { Navigation, Pagination } from 'swiper';
@@ -6,7 +6,8 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/swiper.min.css';
 import { useRouter } from 'next/router';
 
-SwiperCore.use([Navigation, Pagination]);
+SwiperCore.use([Navigation, Pagination])
+
 
 interface ShowcaseProps {
   products: Array<Products>;
@@ -15,22 +16,16 @@ interface ShowcaseProps {
 
 export default function Showcase({ products, title }: ShowcaseProps) {
   const router = useRouter();
-  var goToProduct = (id: number, e) => {
+  var goToProduct = (id: number, e: SyntheticEvent) => {
     e.preventDefault();
     router.push(`/product/${id}`);
   }
-
   return (
     <div className={styles.container}>
       <h2>{title}</h2>
       <div className="showcase">
-        <Swiper navigation={true} loop={true} breakpoints={{
-          "1024": {
-            "slidesPerView": 4,
-            "spaceBetween": 50
-          }
-        }}>
-          {products && products.map(item => {
+        <Swiper className="hidden-xs" navigation={true} slidesPerView={4} loop={true}>
+          {products.map(item => {
             return (
               <SwiperSlide key={item.id} >
                 <div className={styles.card}>
@@ -40,9 +35,25 @@ export default function Showcase({ products, title }: ShowcaseProps) {
                     currency: "USD",
                     style: "currency"
                   }).format(item.price)}</p>
-                  <div>
-                    <a href={`/product/${item.id}`} onClick={(e) => goToProduct(item.id, e)}>Shop Now</a>
-                  </div>
+                  <a href={"/product/" + item.id} onClick={(e) => goToProduct(item.id, e)}>Shop Now</a>
+                </div>
+              </SwiperSlide>
+            );
+          })
+          }
+        </Swiper>
+        <Swiper className="visible-xs" navigation={true} slidesPerView={1} loop={true}>
+          {products.map(item => {
+            return (
+              <SwiperSlide key={item.id} >
+                <div className={styles.card}>
+                  <img src={item.image} alt={item.title} />
+                  <p>{item.title}</p>
+                  <p>{new Intl.NumberFormat('en-US', {
+                    currency: "USD",
+                    style: "currency"
+                  }).format(item.price)}</p>
+                  <a href={"/product/" + item.id} onClick={(e) => goToProduct(item.id, e)}>Shop Now</a>
                 </div>
               </SwiperSlide>
             );

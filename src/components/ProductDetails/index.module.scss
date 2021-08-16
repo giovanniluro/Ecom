@@ -4,6 +4,14 @@
   > div {
     width: 50%;
   }
+
+  @media (max-width: 976px) {
+    flex-direction: column;
+
+    > div {
+      width: 100%;
+    }
+  }
 }
 
 .productData {
