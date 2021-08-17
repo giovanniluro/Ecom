@@ -1,4 +1,5 @@
-import React, { useState } from 'react'
+import React, { useCallback, useContext, useEffect, useState } from 'react'
+import { CartContext } from '../../contexts/CartContext';
 import { Products } from '../../interfaces'
 import styles from './index.module.scss';
 
@@ -8,21 +9,45 @@ interface ProductProps {
 
 export default function ProductDetails({ data }: ProductProps) {
   const [quantity, setQuantity] = useState(1);
+  const { products, setProducts } = useContext(CartContext);
+  useEffect(() => {
+    console.log(products)
+  }, [products]);
 
-  var handleAddQuantity = () => {
+
+  var handleAddQuantity = useCallback(() => {
     setQuantity(quantity + 1);
-  }
+  }, [quantity, setQuantity]);
 
-  var handleRemoveQuantity = (a) => {
-    console.log(a);
+  var handleRemoveQuantity = useCallback(() => {
     if (quantity > 1) {
       setQuantity(quantity - 1);
     }
-  }
+  }, [quantity, setQuantity]);
+
+  var handleAddToCart = useCallback(() => {
+    var productsArray = products;
+    var productInCart = false;
+
+    productsArray.map(item => {
+      if (item.product.id === data.id) {
+        item.quantity += quantity;
+        productInCart = true;
+      }
+    });
+
+    if (!productInCart) productsArray.push({ product: data, quantity: quantity });
+    setProducts(productsArray);
+  }, [products, setProducts, data]);
 
   return (
     <div className={styles.container}>
       <div className={styles.productImage}>
+        {products.map(item => {
+          return (
+            <p key={item.product.id}>{item.product.title}</p>
+          )
+        })}
         <img src={data.image} alt={data.title} />
       </div>
       <div className={styles.productData}>
@@ -45,7 +70,7 @@ export default function ProductDetails({ data }: ProductProps) {
             </span>
             <button onClick={handleAddQuantity}>+</button>
           </div>
-          <button>Add to cart</button>
+          <button onClick={handleAddToCart}>Add to cart</button>
         </div>
       </div>
     </div>

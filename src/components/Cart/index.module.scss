@@ -1,0 +1,23 @@
+.cartContainer {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 20%;
+  bottom: 0;
+  background: var(--white);
+  box-shadow: 0 0 4px 1px rgba(0, 0, 0, 0.05);
+  z-index: 10;
+
+  > h2 {
+    background: var(--black);
+    color: var(--white);
+    text-align: center;
+    padding: 16px;
+  }
+}
+
+.cartList {
+  p {
+    color: var(--black);
+  }
+}

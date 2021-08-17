@@ -1,6 +1,7 @@
 import React from 'react';
 import { useRouter } from 'next/router';
 import style from './index.module.scss';
+import Cart from '../Cart';
 
 interface HeaderProps {
   categories: Array<string>;
@@ -12,6 +13,7 @@ export default function Header({ categories }: HeaderProps) {
   var handleGoToHome = () => {
     router.push('/');
   }
+
   return (
     <div className={style.header}>
       <div className={style.crumb}>
@@ -19,6 +21,7 @@ export default function Header({ categories }: HeaderProps) {
         {categories.map(category => (<a href={`${category.replace(/\s|\W/g, '')}`} key={category}>{category}</a>))}
       </div>
       <div>
+        <Cart />
       </div>
     </div >
   )

@@ -5,6 +5,7 @@ import '../styles/global.scss';
 import Router from 'next/router';
 import NProgress from 'nprogress';
 import '../styles/nprogress.css';
+import { CartProvider } from '../contexts/CartContext';
 
 Router.events.on('routeChangeStart', (url) => {
   NProgress.start()
@@ -18,10 +19,11 @@ interface AppCustomProps extends AppProps {
 
 function MyApp({ Component, pageProps, router, categories }: AppCustomProps) {
   return (
-    <>
+    <CartProvider>
       <Header categories={categories} />
       <Component {...pageProps} />
-    </>);
+    </CartProvider>
+  );
 }
 
 MyApp.getInitialProps = async (appContext) => {

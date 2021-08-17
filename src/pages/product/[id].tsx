@@ -1,5 +1,5 @@
 import { GetServerSideProps } from 'next';
-import React, { useState } from 'react'
+import React from 'react'
 import api from '../../api';
 import Showcase from '../../components/Showcase';
 import ProductDetails from '../../components/ProductDetails';
