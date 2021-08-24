@@ -10,10 +10,6 @@ interface ProductProps {
 export default function ProductDetails({ data }: ProductProps) {
   const [quantity, setQuantity] = useState(1);
   const { products, setProducts } = useContext(CartContext);
-  useEffect(() => {
-    console.log(products)
-  }, [products]);
-
 
   var handleAddQuantity = useCallback(() => {
     setQuantity(quantity + 1);
@@ -26,28 +22,30 @@ export default function ProductDetails({ data }: ProductProps) {
   }, [quantity, setQuantity]);
 
   var handleAddToCart = useCallback(() => {
-    var productsArray = products;
     var productInCart = false;
 
-    productsArray.map(item => {
+    var updatedProducts = products.map((item) => {
       if (item.product.id === data.id) {
-        item.quantity += quantity;
         productInCart = true;
+        return { product: item.product, quantity: item.quantity + quantity }
       }
+      return item;
     });
 
-    if (!productInCart) productsArray.push({ product: data, quantity: quantity });
-    setProducts(productsArray);
-  }, [products, setProducts, data]);
+    if (!productInCart) { setProducts([...updatedProducts, { product: data, quantity: quantity }]) }
+    else {
+      setProducts(updatedProducts);
+    }
+  }, [products, setProducts, data, quantity]);
+
+
+  useEffect(() => {
+    setQuantity(1);
+  }, [data]);
 
   return (
     <div className={styles.container}>
       <div className={styles.productImage}>
-        {products.map(item => {
-          return (
-            <p key={item.product.id}>{item.product.title}</p>
-          )
-        })}
         <img src={data.image} alt={data.title} />
       </div>
       <div className={styles.productData}>

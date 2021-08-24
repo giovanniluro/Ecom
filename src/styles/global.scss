@@ -124,3 +124,12 @@ a {
     display: none;
   }
 }
+
+.flex {
+  display: flex;
+}
+
+.flex-c {
+  display: flex;
+  flex-direction: column;
+}
