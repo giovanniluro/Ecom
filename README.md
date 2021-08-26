@@ -50,7 +50,9 @@ payment: {}, //Objeto contendo as informações de pagamento
 O array de produtos pode ser preenchido com as informações dos produtos do carrinho, não existe nenhuma formatação obrigatória pra esse campo, ele só não pode ir vazio. O userId é um valor númerico associado ao usuário que está realizando o pedido. O payment é o campo onde serão enviadas as informações de pagamento. O gateway aceita 3 tipos de pagamento, que são: "cash" (boleto), "creditCard" (cartão de crétdito) e "debitCard". (cartão de débito). Os payloads de cada tipo devem ser preenchidos das seguintes maneiras:
 
 <br/>
+
 **Cash (boleto)**
+
 <br/>
 
 ```
@@ -60,7 +62,9 @@ payment: {
 }
 ```
 <br>
+
 **creditCard (cartão de crédito)**
+
 <br/>
 
 ```
@@ -75,7 +79,9 @@ payment: {
 }
 ```
 <br/>
+
 **debitCard (cartão de débito)**
+
 <br/>
 
 ```
