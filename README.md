@@ -43,7 +43,8 @@ Ao finalizar o pedido nessa rota, vocês devem enviar no body da requisição as
 {
 products: [], //Array de produtos
 userId: 1, //Número associado ao id do usuário que está realizando o pedido,
-payment: {}, //Objeto contendo as informações de pagamento
+payment: {}, //Objeto contendo as informações de pagamento,
+shippingAddress: {}, //Objeto contendo as informações do endereço de entrega
 }
 ```
 
