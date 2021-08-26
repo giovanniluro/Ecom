@@ -51,6 +51,7 @@ O array de produtos pode ser preenchido com as informações dos produtos do car
 
 <br/>
 **Cash (boleto)**
+<br/>
 ```
 payment: {
  type: "cash",
@@ -59,6 +60,7 @@ payment: {
 ```
 <br>
 **creditCard (cartão de crédito)**
+<br/>
 ```
 payment: {
  type: "creditCard",
@@ -72,6 +74,7 @@ payment: {
 ```
 <br/>
 **debitCard (cartão de débito)**
+<br/>
 ```
 payment: {
  type: "debitCard",
@@ -80,6 +83,7 @@ payment: {
  total: 1234.50, //valor total da compra
 }
 ```
+<br/>
 
 O endpoint irá validar todos os campos e retornará uma mensagem de erro, caso alguma informação esteja errada, no seguinte formato:
 
