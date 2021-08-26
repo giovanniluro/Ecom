@@ -22,9 +22,9 @@ Definimos um escopo mínimo do projeto, montando o esqueleto básico de um e-com
 - Carrinho (Cart)
 > O carrinho é onde ficam armazenados todos os produtos escolhidos pelo usuário até o momento da finalização da compra. No carrinho, o usuário pode interagir com os produtos, removendo-os, mudando as quantidades desejadas de cada unidade, o carrinho também deve ter o valor total da compra e o botão para ir até o checkout. É essencial que o cart possa ser acessado em qualquer página do site. Uma dica é persistir as informações do cart no localStorage, dessa forma, ao atualizar a página o carrinho poderá ser recuperado em qualquer página da loja.
 - Finalização do pedido (Checkout)
-> A página de checkout é onde o usuário finalizará sua compra após escolher todos os produtos. Nessa página, o usuário pode realizar o seu login, preencher as informações do endereço de entrega e escolher o seu método de pagamento. Para o login, vocês podem utilizar as informações da rota de usuários, e para o pagamento, podem consumir o serviço fake de gateway. Se tudo estiver correto a compra é finalizada e o usuário deve ser levado até a página de confirmação do pedido.
+> A página de checkout é onde o usuário finalizará sua compra após escolher todos os produtos. Nessa página, o usuário pode realizar o seu login, preencher as informações do endereço de entrega e escolher o seu método de pagamento. Para o login, vocês podem utilizar as informações da rota de usuários da Fake Store API, e para o pagamento, devem utilizar o formato aceito pelo serviço fake de gateway. Se tudo estiver correto a compra deve ser finalizada na rota /payment do gateway e em caso de sucesso o usuário deve ser levado até a página de confirmação do pedido.
 - Confirmação do Pedido (Confirmation)
-> Quando a compra é efetuada com sucesso, uma página com as informações do pedido (id, data, valor total...) e os seus produtos são exibidas para o usuário, além disso, ele também pode voltar ao início do site. Nessa página, vocês podem utilizar as informações persistidas no localStorage, caso tenham optado por essa alternativa, ou então consumirem a rota de cart da API e exibirem essas informações (mesmo que as informações da confirmação não coincidam com o pedido originalmente realizado).
+> Quando a compra é efetuada com sucesso, uma página com as informações do pedido retornadas pelo gateway (id, data de criação, valor total...) e os seus produtos são exibidas para o usuário, além disso, ele também pode voltar ao início do site.
 
 Bom desafio a todos!
 
@@ -48,7 +48,7 @@ shippingAddress: {}, //Objeto contendo as informações do endereço de entrega
 }
 ```
 
-O array de produtos pode ser preenchido com as informações dos produtos do carrinho, não existe nenhuma formatação obrigatória pra esse campo, ele só não pode ir vazio, a mesma regra se aplica ao shippingAddress, ele não tem nenhum formato obrigatório, mas precisa ir preenchido com alguma informação. O userId é um valor númerico associado ao usuário que está realizando o pedido. O payment é o campo onde serão enviadas as informações de pagamento. O gateway aceita 3 tipos de pagamento, que são: "cash" (boleto), "creditCard" (cartão de crétdito) e "debitCard". (cartão de débito). Os payloads de cada tipo devem ser preenchidos das seguintes maneiras:
+O array de produtos pode ser preenchido com as informações dos produtos do carrinho, não existe nenhuma formatação obrigatória pra esse campo, ele só não pode ir vazio, a mesma regra se aplica ao shippingAddress, ele não tem nenhum formato obrigatório, mas precisa ir preenchido com alguma informação. O userId é um valor númerico associado ao id do usuário que está realizando o pedido. O payment é o campo onde serão enviadas as informações de pagamento. O gateway aceita 3 tipos de pagamento, que são: "cash" (boleto), "creditCard" (cartão de crétdito) e "debitCard". (cartão de débito). Os payloads de cada tipo devem ser preenchidos das seguintes maneiras:
 
 <br/>
 
