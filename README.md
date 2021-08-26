@@ -9,7 +9,7 @@ Nesse desafio, vocês terão que implementar uma loja do zero, utilizando ReactJ
 <br/>
 Antes de tudo, para que vocês tenham os dados para exibir em tela, iremos consumir a [Fake Store API]('https://fakestoreapi.com/'). A Fake Store API é uma API REST que simula algumas das principais rotas presentes em um e-commerce. Não é possível criar/atualizar nenhuma das informações, portanto, iremos apenas consumir as informações das rotas de produtos e usuários.
 
-Para a criação dos pedidos iremos utilizar o serviço de fake Gateway, um endpoint REST que irá receber as informações do carrinho de compras, do usuário que está comprando e do pagamento selecionado. A documentação desse endpoint está disponível no [final do arquivo](###GatewayAPI).
+Para a criação dos pedidos iremos utilizar o serviço de fake Gateway, um endpoint REST que irá receber as informações do carrinho de compras, do usuário que está comprando e do pagamento selecionado. A documentação desse endpoint está disponível no [final do arquivo](#gateway).
 
 **Requisitos Mínimos**
 <br/>
@@ -28,4 +28,5 @@ Definimos um escopo mínimo do projeto, montando o esqueleto básico de um e-com
 
 Bom desafio a todos!
 
+<a name="gateway"></a>
 ### GatewayAPI
