@@ -30,3 +30,122 @@ Bom desafio a todos!
 
 <a name="gateway"></a>
 ### GatewayAPI
+
+Para finalizar um pedido, iremos utilizar a fake API de Gateway, ela é acessada a partir do recurso:
+
+```
+POST https://ha409pwkmf.execute-api.us-east-1.amazonaws.com/prod/payment
+```
+
+Ao finalizar o pedido nessa rota, vocês devem enviar no body da requisição as informações do pedido no seguinte formato:
+
+```
+{
+products: [], //Array de produtos
+userId: 1, //Número associado ao id do usuário que está realizando o pedido,
+payment: {}, //Objeto contendo as informações de pagamento
+}
+```
+
+O array de produtos pode ser preenchido com as informações dos produtos do carrinho, não existe nenhuma formatação obrigatória pra esse campo, ele só não pode ir vazio. O userId é um valor númerico associado ao usuário que está realizando o pedido. O payment é o campo onde serão enviadas as informações de pagamento. O gateway aceita 3 tipos de pagamento, que são: "cash" (boleto), "creditCard" (cartão de crétdito) e "debitCard". (cartão de débito). Os payloads de cada tipo devem ser preenchidos das seguintes maneiras:
+
+<br>
+**Cash (boleto)**
+```
+payment: {
+ type: "cash",
+ total: 1234.50, //valor total da compra
+}
+```
+<br>
+**creditCard (cartão de crédito)**
+```
+payment: {
+ type: "creditCard",
+ cardNumber: "4444555566667777"//número do cartão de crédito
+ cvv: "123" //cvv do cartão de crédito
+ nameOnCard: "John Doe"//nome impresso no cartão de crédito
+ expiryDate: "22/04/2024"//data de expiração do cartão de crédito
+ brand: "visa" //bandeira do cartão de crédito 
+ total: 1234.50, //valor total da compra
+}
+```
+<br>
+**debitCard (cartão de débito)**
+```
+payment: {
+ type: "debitCard",
+ cardNumber: "4444555566667777"//número do cartão de débito 
+ nameOnCard: "John Doe"//nome impresso no cartão de débito
+ total: 1234.50, //valor total da compra
+}
+```
+
+O endpoint irá validar todos os campos e retornará uma mensagem de erro, caso alguma informação esteja errada, no seguinte formato:
+
+```
+status: 400 data: {
+    "error": "Property 'userId' must be a number"
+}
+```
+Para os casos de sucesso o endpoint irá retornar como resposta as informações enviadas inicialmente, junto com um id único do pedido, e a data de criação do pedido. Essas informações não são persistidas em nenhum banco de dados, e irão servir apenas para a exibição das informações na página de confirmação de pedido.
+
+**Exemplo de requisição correta**
+```
+{
+    "products": [
+        {
+            "product": {
+                "id": 3,
+                "title": "Mens Cotton Jacket",
+                "price": 55.99,
+                "description": "great outerwear jackets for Spring/Autumn/Winter, suitable for many occasions, such as working, hiking, camping, mountain/rock climbing, cycling, traveling or other outdoors. Good gift choice for you or your family member. A warm hearted love to Father, husband or son in this thanksgiving or Christmas Day.",
+                "category": "men's clothing",
+                "image": "https://fakestoreapi.com/img/71li-ujtlUL._AC_UX679_.jpg"
+            },
+            "quantity": 3
+        }
+    ],
+    "userId": 1,
+    "payment": {
+        "type": "creditCard",
+        "cardNumber": "12345678",
+        "cvv": "1234",
+        "expiryDate": "22/04/1992",
+        "brand": "visa",
+        "nameOnCard": "John Doe",
+        "total": 167.98
+    }
+}
+```
+
+**Exemplo de retorno com sucesso**
+```
+{
+    "products": [
+        {
+            "product": {
+                "id": 3,
+                "title": "Mens Cotton Jacket",
+                "price": 55.99,
+                "description": "great outerwear jackets for Spring/Autumn/Winter, suitable for many occasions, such as working, hiking, camping, mountain/rock climbing, cycling, traveling or other outdoors. Good gift choice for you or your family member. A warm hearted love to Father, husband or son in this thanksgiving or Christmas Day.",
+                "category": "men's clothing",
+                "image": "https://fakestoreapi.com/img/71li-ujtlUL._AC_UX679_.jpg"
+            },
+            "quantity": 3
+        }
+    ],
+    "userId": 1,
+    "payment": {
+        "type": "creditCard",
+        "cardNumber": "12345678",
+        "cvv": "1234",
+        "expiryDate": "22/04/1992",
+        "brand": "visa",
+        "nameOnCard": "John Doe",
+        "total": 167.98
+    },
+    "id": "8200f481-6d53-4305-a4c8-dbe2178f5d48",
+    "creationDate": "2021-08-26T00:29:35.466Z"
+}
+```
