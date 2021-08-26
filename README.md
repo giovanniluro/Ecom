@@ -49,7 +49,7 @@ payment: {}, //Objeto contendo as informações de pagamento
 
 O array de produtos pode ser preenchido com as informações dos produtos do carrinho, não existe nenhuma formatação obrigatória pra esse campo, ele só não pode ir vazio. O userId é um valor númerico associado ao usuário que está realizando o pedido. O payment é o campo onde serão enviadas as informações de pagamento. O gateway aceita 3 tipos de pagamento, que são: "cash" (boleto), "creditCard" (cartão de crétdito) e "debitCard". (cartão de débito). Os payloads de cada tipo devem ser preenchidos das seguintes maneiras:
 
-<br>
+<br/>
 **Cash (boleto)**
 ```
 payment: {
@@ -70,7 +70,7 @@ payment: {
  total: 1234.50, //valor total da compra
 }
 ```
-<br>
+<br/>
 **debitCard (cartão de débito)**
 ```
 payment: {
@@ -109,7 +109,7 @@ Para os casos de sucesso o endpoint irá retornar como resposta as informações
     "userId": 1,
     "payment": {
         "type": "creditCard",
-        "cardNumber": "12345678",
+        "cardNumber": "4444555566667777",
         "cvv": "1234",
         "expiryDate": "22/04/1992",
         "brand": "visa",
@@ -138,7 +138,7 @@ Para os casos de sucesso o endpoint irá retornar como resposta as informações
     "userId": 1,
     "payment": {
         "type": "creditCard",
-        "cardNumber": "12345678",
+        "cardNumber": "4444555566667777",
         "cvv": "1234",
         "expiryDate": "22/04/1992",
         "brand": "visa",
@@ -149,3 +149,5 @@ Para os casos de sucesso o endpoint irá retornar como resposta as informações
     "creationDate": "2021-08-26T00:29:35.466Z"
 }
 ```
+
+
