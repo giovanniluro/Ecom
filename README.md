@@ -47,7 +47,7 @@ payment: {}, //Objeto contendo as informações de pagamento
 }
 ```
 
-O array de produtos pode ser preenchido com as informações dos produtos do carrinho, não existe nenhuma formatação obrigatória pra esse campo, ele só não pode ir vazio. O userId é um valor númerico associado ao usuário que está realizando o pedido. O payment é o campo onde serão enviadas as informações de pagamento. O gateway aceita 3 tipos de pagamento, que são: "cash" (boleto), "creditCard" (cartão de crétdito) e "debitCard". (cartão de débito). Os payloads de cada tipo devem ser preenchidos das seguintes maneiras:
+O array de produtos pode ser preenchido com as informações dos produtos do carrinho, não existe nenhuma formatação obrigatória pra esse campo, ele só não pode ir vazio, a mesma regra se aplica ao shippingAddress, ele não tem nenhum formato obrigatório, mas precisa ir preenchido com alguma informação. O userId é um valor númerico associado ao usuário que está realizando o pedido. O payment é o campo onde serão enviadas as informações de pagamento. O gateway aceita 3 tipos de pagamento, que são: "cash" (boleto), "creditCard" (cartão de crétdito) e "debitCard". (cartão de débito). Os payloads de cada tipo devem ser preenchidos das seguintes maneiras:
 
 <br/>
 
@@ -122,12 +122,20 @@ Para os casos de sucesso o endpoint irá retornar como resposta as informações
     "userId": 1,
     "payment": {
         "type": "creditCard",
-        "cardNumber": "4444555566667777",
+        "cardNumber": "12345678",
         "cvv": "1234",
         "expiryDate": "22/04/1992",
         "brand": "visa",
         "nameOnCard": "John Doe",
         "total": 167.98
+    },
+    "shippingAddress": {
+        "cepCode": "13466460",
+        "address": "Rua Tamoio",
+        "number": "40",
+        "county": "Vila Santa Catarina",
+        "city": "Americana",
+        "state": "SP"
     }
 }
 ```
@@ -151,15 +159,23 @@ Para os casos de sucesso o endpoint irá retornar como resposta as informações
     "userId": 1,
     "payment": {
         "type": "creditCard",
-        "cardNumber": "4444555566667777",
+        "cardNumber": "12345678",
         "cvv": "1234",
         "expiryDate": "22/04/1992",
         "brand": "visa",
         "nameOnCard": "John Doe",
         "total": 167.98
     },
-    "id": "8200f481-6d53-4305-a4c8-dbe2178f5d48",
-    "creationDate": "2021-08-26T00:29:35.466Z"
+    "shippingAddress": {
+        "cepCode": "13466460",
+        "address": "Rua Tamoio",
+        "number": "40",
+        "county": "Vila Santa Catarina",
+        "city": "Americana",
+        "state": "SP"
+    },
+    "id": "b878715c-a5a1-4b8a-b009-aee6ba827d46",
+    "creationDate": "2021-08-26T16:44:29.244Z"
 }
 ```
 
