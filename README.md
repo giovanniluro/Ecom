@@ -16,7 +16,7 @@ Para a criação dos pedidos iremos utilizar o serviço de fake Gateway, um endp
 Definimos um escopo mínimo do projeto, montando o esqueleto básico de um e-commerce, mas sintam-se desafiados a inovar! O escopo mínimo do projeto é o seguinte:
 <br/>
 - Página Inicial (Home)
-> Como qualquer loja de e-commerce, a de vocês deverá ter uma página inicial onde o usuário terá o seu primeiro contato com a loja, alguns dos componentes essenciais dessa página são: um header, um footer, banners e vitrines exibição para os produtos. O header e o footer, devem estar presentes em todas as páginas da aplicação, pra facilitar a navegação  do usuário pelo site. Na home vocês podem consumir as rotas de produto para popular as informações necessárias.
+> Como qualquer loja de e-commerce, a de vocês deverá ter uma página inicial onde o usuário terá o seu primeiro contato com a loja, alguns dos componentes essenciais dessa página são: um header, um footer, banners e vitrines de exibição para os produtos. O header e o footer, devem estar presentes em todas as páginas da aplicação, pra facilitar a navegação  do usuário pelo site. Na home vocês podem consumir as rotas de produto para popular as informações necessárias.
 - Página de Produto (PDP)
 > Ao selecionar algum produto no site, o usuário deve ser direcionado para a página do produto selecionado. Nessa página, ele deve conseguir ver mais informações sobre o produto selecionado, além da opção de adicionar o produto ao carrinho. Vocês podem consumir as rotas de produto para popular as informações necessárias.
 - Carrinho (Cart)
