@@ -52,6 +52,7 @@ O array de produtos pode ser preenchido com as informações dos produtos do car
 <br/>
 **Cash (boleto)**
 <br/>
+
 ```
 payment: {
  type: "cash",
@@ -61,6 +62,7 @@ payment: {
 <br>
 **creditCard (cartão de crédito)**
 <br/>
+
 ```
 payment: {
  type: "creditCard",
@@ -75,6 +77,7 @@ payment: {
 <br/>
 **debitCard (cartão de débito)**
 <br/>
+
 ```
 payment: {
  type: "debitCard",
