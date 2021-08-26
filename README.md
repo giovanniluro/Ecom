@@ -3,7 +3,7 @@
 
 **Sobre o desafio**
 <br/>
-Nesse desafio, vocês terão que implementar uma loja do zero, utilizando ReactJS ou Vue.js. O desafio é uma aplicação que irá se conectar à fakeAPIs que vão servir informações de produtos, usuários e pedidos. O objetivo é criar uma loja navegável a partir das informações disponíveis.
+Nesse desafio, vocês terão que implementar uma loja do zero, utilizando ReactJS ou Vue.js. O desafio é uma aplicação que irá se conectar à fakeAPIs que vão fornecer informações de produtos, usuários e pedidos. O objetivo é criar uma loja navegável a partir das informações disponíveis.
 
 **API**
 <br/>
