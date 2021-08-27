@@ -180,4 +180,9 @@ Para os casos de sucesso o endpoint irá retornar como resposta as informações
 }
 ```
 
-
+# Avaliação
+- Escopo 
+- Qualidade de código (clean code, identação, modularização, objetividade) 
+- Usabilidade
+- Funcionalidades extras
+- Performance (Definir ferramenta de medição - Ex. Devtools)
